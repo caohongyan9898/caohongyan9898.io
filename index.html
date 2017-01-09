@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="white=device-width,initial-scale=1" />	
+		<title>图片变化</title>
+		<!--[if  lt ie 9]>
+			<script src="respond.min.js"></script>
+			<script src="html5shiv.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			/*max-width   针对pc
+			min-width
+			max-device-width   针对移动设备
+			min-device-width*/
+			
+		</style>
+	</head>
+	
+	<style type="text/css">
+		/*图片转动*/
+		.con{
+			width: 200px;height: 200px;background: url(img/5840efcc20f63_260_260.jpg);
+			background-size:140% ;background-position:-20px 0 ;border-radius:50% ;
+			transition: transform linear 3s; 
+		}
+		.con:hover{
+			transform: rotate(360deg);
+		}
+		/*文字从下面出现*/
+		html{
+			font-size:62.5% ;}
+		@media screen and(min-width:300px){
+			body{
+				background: firebrick;
+			}
+		}
+		@media screen and (min-width:500px) and (max-width:800px) {
+			body{
+				background: red;
+			}
+		}
+		@media screen and (min-width:800px) and (max-width:1200px){
+			body{
+				background: gold;
+			}
+		}	
+		.con1{
+			width: 300px;
+			height: 150px;
+			background: lightblue;
+			padding: 15px;
+			position: relative;
+			overflow: hidden;
+			text-align: center;
+		}
+		.con1 p{
+			transition: all 1s; 
+			position: absolute;
+			top: 0;
+		}
+		.con1 p:nth-child(2){
+			top: 50%;
+		}
+		.con1 p:last-child{
+			top: 100%;
+		}
+		
+		.con1:hover p:first-child{
+			top: -100%;
+		}
+		.con1:hover p:nth-child(2){
+			top: 100%; 
+		}
+		.con1:hover p:last-child{
+			top: 50%;
+		}
+		
+		/*div{
+			width: 300px;height: 50px;border: 3px solid fuchsia;background: #DCDCDC;transform: rotate(15deg);
+			margin-top:100px ;font-size:30px ;line-height: 50px;color: #FAEBD7;
+		}
+		.con:before{
+			content: "";display: block; float: right;margin: 8px 20px;
+			width: 20px;height: 20px;border-bottom: 3px solid #FFD700;border-left: 3px solid #FFD700;transform: rotate(-45deg);
+		}
+		div:hover{
+			width: 300px; height: 600px;background: #FAEBD7;
+			transform: rotate(15deg);color: whitesmoke;border: 8px solid firebrick;
+		}*/
+		.con2{
+			width: 300px;font-size:3rem ;
+			height: 150px; 
+			-webkit-perspective: 600;
+			perspective: 600;
+			float: left;
+		}
+		.con2 p{
+			padding: 10px;width: 300px;
+			background: fuchsia;transition:all 1s;
+		}
+		.con2 p:hover{
+			transform: rotate(180deg);color: #228B22;background: #FAEBD7;
+		}
+		.con3{
+			width: 100px;height: 100px;background: gold;margin:50px;float: right;
+		}
+		.con3:hover{
+			animation: 5s roll linear infinite;
+		}
+		@keyframes roll{
+			30%{margin-left:300px ;margin-top:300px ;}
+			50%{background: navajowhite;margin-left:400px ;margin-top:500px ;}	
+			100%{background: #ADD8E6;margin-left:500px ;margin-top:250px ;}
+		}
+		.con4{
+			width:100px ;height: 100px;background: hotpink;margin:50px ;
+			animation: 5s fil linear infinite;float: left;
+		}
+		@keyframes fil{
+			30%{transform: rotate(45deg) ;margin-left:200px ;margin-top: 300px;background: honeydew;}
+			50%{transform: rotate(45deg) ;margin-left:400px ;margin-top: 500px;background: chocolate;}	
+			100%{transform: rotate(45deg) ;margin-left:500px ;margin-top: 200px;background: goldenrod;}
+		}
+		.con5{
+			float: right;
+		}
+		.con5 img{
+			animation: .2s spin linear infinite;
+			animation-play-state:paused ;
+		}
+		.con5 img.img{
+			animation: spin 1s infinite alternate;
+		}
+		@keyframes spin{
+			/* scale缩放*/
+			0%{
+				transform: scale(0.5);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+		.con6{
+			width: 240px;height: 240px;background: url(img/5840efcbc69f8_260_260.jpg);
+			background-position:-20px 0 ;border-radius:50% ;
+			/*transition: transform linear 3s;*/ border: 5px solid #ccc;
+			animation: 5s cd linear infinite;
+			margin-top:200px ;
+		}
+		@keyframes cd{
+			to{transform: rotate(360deg);}
+		}
+		
+	</style>
+	<body>            
+		<button>点击</button>
+		<!--图片转动-->
+		<div class="con"></div>
+		<!--字体转换-->
+		<div class="con1">
+			<p style="font-size:3rem ;">人活着活着就麻木了</p>
+			<p style="font-size:2rem ;">现实了，贪心了,想要的更多了</p>
+			<p style="font-size:1rem ;">变成了吸血鬼，蛀虫</p>
+		</div>
+		<!--反转卡片-->
+		<div class="con2">
+			<p>人生在世，总有一些不如意的</p>
+		</div>
+		<div class="con3"></div>
+		<!--滚动-->
+		<div class="con4"></div>
+		<!--跳动的心脏-->
+		<div class="con5">
+			<img class="img" src="img/8.png" />
+		</div>
+		<!--一直转动的cd-->
+		<div class="con6"></div>
+	</body>
+</html>
